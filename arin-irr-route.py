@@ -9,6 +9,9 @@ load_dotenv()
 # Set the API key and abuse contact email from the environment variables
 api_key = os.getenv("ARIN_API_KEY")
 abuse_contact_email = os.getenv("ABUSE_CONTACT_EMAIL")
+mnt_by = os.getenv("MNT_BY")
+admin_c = os.getenv("ADMIN_C")
+tech_c = os.getenv("TECH_C")
 
 # Parse the command-line arguments
 parser = argparse.ArgumentParser()
@@ -24,9 +27,9 @@ originas = args.originas
 payload = f"""route: {route}
 origin: AS{originas}
 descr: ANY ABUSE SHOULD BE REPORTED TO {abuse_contact_email}
-mnt-by: MNT-CANAD-111
-admin-c: NOC33562-ARIN
-tech-c: NOC33562-ARIN
+mnt-by: {mnt_by}
+admin-c: {admin_c}
+tech-c: {tech_c}
 source: ARIN
 """
 
