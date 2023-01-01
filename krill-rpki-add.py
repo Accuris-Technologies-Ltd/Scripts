@@ -14,11 +14,13 @@ api_key = os.getenv("KRILL_API_KEY")
 parser = argparse.ArgumentParser()
 parser.add_argument("route", help="The IPv4 route to be added to the ROA record")
 parser.add_argument("originas", help="The source ASN for the route")
+parser.add_argument("maxlen", help="The maximum length of the route")
 args = parser.parse_args()
 
 # Set the route and source ASN from the command-line arguments
 route = args.route
 originas = args.originas
+maxlen = args.maxlen
 
 # Set the HTTP headers
 headers = {
@@ -30,7 +32,8 @@ data = {
     "added": [
     {
         "asn": int(originas),
-        "prefix": route
+        "prefix": route,
+        "max_length": int(maxlen)
     }
     ],
     "removed": []
