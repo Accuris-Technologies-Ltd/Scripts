@@ -6,8 +6,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Set the API key
+# Set the API key and abuse contact email from the environment variables
 api_key = os.getenv("ARIN_API_KEY")
+abuse_contact_email = os.getenv("ABUSE_CONTACT_EMAIL")
 
 # Parse the command-line arguments
 parser = argparse.ArgumentParser()
@@ -22,7 +23,7 @@ originas = args.originas
 # Set the IRR record parameters
 payload = f"""route: {route}
 origin: AS{originas}
-descr: ANY ABUSE SHOULD BE REPORTED TO contact@admin.accuristechnologies.ca
+descr: ANY ABUSE SHOULD BE REPORTED TO {abuse_contact_email}
 mnt-by: MNT-CANAD-111
 admin-c: NOC33562-ARIN
 tech-c: NOC33562-ARIN
