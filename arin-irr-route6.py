@@ -24,7 +24,7 @@ route = args.route
 originas = args.originas
 
 # Set the IRR record parameters
-payload = f"""route: {route}
+payload = f"""route6: {route}
 origin: AS{originas}
 descr: ANY ABUSE SHOULD BE REPORTED TO {abuse_contact_email}
 mnt-by: {mnt_by}
