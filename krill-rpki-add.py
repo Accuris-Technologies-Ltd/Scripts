@@ -10,7 +10,6 @@ krill_url = os.getenv("KRILL_URL")
 krill_ca = os.getenv("KRILL_CA")
 api_key = os.getenv("KRILL_API_KEY")
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument("route", help="The IPv4 route to be added to the ROA record")
 parser.add_argument("originas", help="The source ASN for the route")
